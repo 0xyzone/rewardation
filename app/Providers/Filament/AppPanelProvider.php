@@ -40,6 +40,7 @@ class AppPanelProvider extends PanelProvider
             ->id('app')
             ->path('app')
             ->login()
+            ->viteTheme('resources/css/filament/app/theme.css')
             ->registration()
             ->passwordReset()
             ->emailVerification()

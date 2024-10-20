@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Reward;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Http\Controllers\TeamInvitationController;
@@ -22,6 +23,13 @@ Route::redirect('/login', '/app/login')->name('login');
 Route::redirect('/register', '/app/register')->name('register');
 
 Route::redirect('/dashboard', '/app')->name('dashboard');
+Route::get('/reward', function () {
+    return view('livewire.reward');
+})->name('reward');
+
+Route::get('/alert', function () {
+    return view('livewire.alert');
+})->name('alert');
 
 Route::get('/team-invitations/{invitation}', [TeamInvitationController::class, 'accept'])
     ->middleware(['signed', 'verified', 'auth', AuthenticateSession::class])
